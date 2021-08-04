@@ -1,0 +1,231 @@
+﻿@{
+    Layout = null;
+}
+
+
+<li class="nav-item nav-item-levels mega-menu-full">
+    <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-make-group mr-2"></i>
+        Navigation
+    </a>
+
+    <div class="dropdown-menu dropdown-content">
+        <div class="dropdown-content-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="font-size-sm line-height-sm font-weight-semibold text-uppercase mt-1">Main</div>
+                    <div class="dropdown-divider mb-2"></div>
+                    <div class="dropdown-item-group mb-3 mb-md-0">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-copy"></i>Tours</a>
+                                <ul class="list-unstyled">
+                                    <li><a asp-controller="Tour" asp-action="Index" asp-area="Panel" class="dropdown-item rounded">List</a></li>
+                                    <li><a asp-controller="Tour" asp-action="Create" asp-area="Panel" class="dropdown-item rounded">Add new Tour</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-color-sampler"></i> Registrations</a>
+                                <ul class="list-unstyled">
+                                    <li><a asp-action="Index" asp-controller="Registrations" asp-area="Panel" class="dropdown-item active rounded">All Registrations</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded">
+                                    <i class="icon-width"></i>
+                                    Tour Calendar
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="font-size-sm line-height-sm font-weight-semibold text-uppercase mt-1">Extras</div>
+                    <div class="dropdown-divider mb-2"></div>
+                    <div class="dropdown-item-group mb-3 mb-md-0">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-stack2"></i> Country</a>
+                                <ul class="list-unstyled">
+                                    <li><a asp-controller="Countries" asp-action="Index" asp-area="Panel" class="dropdown-item rounded">List</a></li>
+                                    <li><a asp-controller="Countries" asp-action="Create" asp-area="Panel" class="dropdown-item rounded">Add</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-page-break2"></i>City</a>
+                                <ul class="list-unstyled">
+                                    <li><a asp-action="Index" asp-controller="Cities" asp-area="Panel" class="dropdown-item rounded">List</a></li>
+                                    <li><a asp-action="Create" asp-controller="Cities" asp-area="Panel" class="dropdown-item rounded">Add</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-cube3"></i>Services</a>
+                                <ul class="list-unstyled">
+                                    <li><a asp-controller="Services" asp-action="Index" asp-area="Panel" class="dropdown-item rounded">List</a></li>
+                                    <li><a asp-controller="Services" asp-action="Create" asp-area="Panel" class="dropdown-item rounded">Add</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @*<div class="col-md-3">
+                    <div class="font-size-sm line-height-sm font-weight-semibold text-uppercase mt-1">Navigation</div>
+                    <div class="dropdown-divider mb-2"></div>
+                    <div class="dropdown-item-group mb-3 mb-md-0">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-menu3"></i> Navbars</a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Single navbar</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="navbar_single_top_static.html" class="dropdown-item rounded">Single top static</a></li>
+                                            <li><a href="navbar_single_top_fixed.html" class="dropdown-item rounded">Single top fixed</a></li>
+                                            <li><a href="navbar_single_bottom_static.html" class="dropdown-item rounded">Single bottom static</a></li>
+                                            <li><a href="navbar_single_bottom_fixed.html" class="dropdown-item rounded">Single bottom fixed</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Multiple navbars</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="navbar_multiple_top_static.html" class="dropdown-item rounded">Multiple top static</a></li>
+                                            <li><a href="navbar_multiple_top_fixed.html" class="dropdown-item rounded">Multiple top fixed</a></li>
+                                            <li><a href="navbar_multiple_bottom_static.html" class="dropdown-item rounded">Multiple bottom static</a></li>
+                                            <li><a href="navbar_multiple_bottom_fixed.html" class="dropdown-item rounded">Multiple bottom fixed</a></li>
+                                            <li><a href="navbar_multiple_top_bottom.html" class="dropdown-item rounded">Multiple - top and bottom</a></li>
+                                            <li><a href="navbar_multiple_secondary_sticky.html" class="dropdown-item rounded">Multiple - secondary sticky</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Content navbar</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="navbar_component_single.html" class="dropdown-item rounded">Single navbar</a></li>
+                                            <li><a href="navbar_component_multiple.html" class="dropdown-item rounded">Multiple navbars</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a href="navbar_colors.html" class="dropdown-item rounded">Color options</a></li>
+                                    <li><a href="navbar_sizes.html" class="dropdown-item rounded">Sizing options</a></li>
+                                    <li><a href="navbar_hideable.html" class="dropdown-item rounded">Hide on scroll</a></li>
+                                    <li><a href="navbar_components.html" class="dropdown-item rounded">Navbar components</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-transmission"></i> Horizontal navigation</a>
+                                <ul class="list-unstyled">
+                                    <li><a href="navigation_horizontal_click.html" class="dropdown-item rounded">Submenu on click</a></li>
+                                    <li><a href="navigation_horizontal_hover.html" class="dropdown-item rounded">Submenu on hover</a></li>
+                                    <li><a href="navigation_horizontal_elements.html" class="dropdown-item rounded">With custom elements</a></li>
+                                    <li><a href="navigation_horizontal_tabs.html" class="dropdown-item rounded">Tabbed navigation</a></li>
+                                    <li><a href="navigation_horizontal_disabled.html" class="dropdown-item rounded">Disabled navigation links</a></li>
+                                    <li><a href="navigation_horizontal_mega.html" class="dropdown-item rounded">Horizontal mega menu</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-tree5"></i> Menu levels</a>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="dropdown-item rounded"><i class="icon-IE"></i> Second level</a></li>
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded"><i class="icon-firefox"></i> Second level with child</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="#" class="dropdown-item rounded"><i class="icon-android"></i> Third level</a></li>
+                                            <li>
+                                                <a href="#" class="dropdown-item rounded"><i class="icon-apple2"></i> Third level with child</a>
+                                                <ul class="list-unstyled">
+                                                    <li><a href="#" class="dropdown-item rounded"><i class="icon-html5"></i> Fourth level</a></li>
+                                                    <li><a href="#" class="dropdown-item rounded"><i class="icon-css3"></i> Fourth level</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="dropdown-item rounded"><i class="icon-windows"></i> Third level</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="dropdown-item rounded"><i class="icon-chrome"></i> Second level</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="font-size-sm line-height-sm font-weight-semibold text-uppercase mt-1">Extras</div>
+                    <div class="dropdown-divider mb-2"></div>
+                    <div class="dropdown-item-group mb-3 mb-md-0">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-indent-decrease2"></i> Sidebars</a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Main sidebar</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="sidebar_default_collapse.html" class="dropdown-item rounded">Default collapsible</a></li>
+                                            <li><a href="sidebar_default_hide.html" class="dropdown-item rounded">Default hideable</a></li>
+                                            <li><a href="sidebar_default_hidden.html" class="dropdown-item rounded">Default hidden</a></li>
+                                            <li><a href="sidebar_mini_collapse.html" class="dropdown-item rounded">Mini collapsible</a></li>
+                                            <li><a href="sidebar_mini_hide.html" class="dropdown-item rounded">Mini hideable</a></li>
+                                            <li><a href="sidebar_mini_hidden.html" class="dropdown-item rounded">Mini hidden</a></li>
+                                            <li class="dropdown-divider"></li>
+                                            <li><a href="sidebar_default_sections.html" class="dropdown-item rounded">Sectioned sidebar</a></li>
+                                            <li><a href="sidebar_default_stretched.html" class="dropdown-item rounded">Stretched sidebar</a></li>
+                                            <li><a href="sidebar_default_color_dark.html" class="dropdown-item rounded">Dark color</a></li>
+                                            <li><a href="sidebar_default_color_custom.html" class="dropdown-item rounded">Custom color</a></li>
+                                            <li><a href="sidebar_default_color_sections_custom.html" class="dropdown-item rounded">Custom sections color</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Secondary sidebar</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="sidebar_secondary_after.html" class="dropdown-item rounded">After default</a></li>
+                                            <li><a href="sidebar_secondary_before.html" class="dropdown-item rounded">Before default</a></li>
+                                            <li><a href="sidebar_secondary_hidden.html" class="dropdown-item rounded">Hidden by default</a></li>
+                                            <li class="dropdown-divider"></li>
+                                            <li><a href="sidebar_secondary_sections.html" class="dropdown-item rounded">Sectioned sidebar</a></li>
+                                            <li><a href="sidebar_secondary_stretched.html" class="dropdown-item rounded">Stretched sidebar</a></li>
+                                            <li><a href="sidebar_secondary_color_dark.html" class="dropdown-item rounded">Dark color</a></li>
+                                            <li><a href="sidebar_secondary_color_custom.html" class="dropdown-item rounded">Custom color</a></li>
+                                            <li><a href="sidebar_secondary_color_sections_custom.html" class="dropdown-item rounded">Custom sections color</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="dropdown-item rounded">Right sidebar</a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="sidebar_right_default_collapse.html" class="dropdown-item rounded">Show - collapse main</a></li>
+                                            <li><a href="sidebar_right_default_hide.html" class="dropdown-item rounded">Show - hide main</a></li>
+                                            <li><a href="sidebar_right_default_toggle.html" class="dropdown-item rounded">Show - fix default width</a></li>
+                                            <li><a href="sidebar_right_mini_toggle.html" class="dropdown-item rounded">Show - fix mini width</a></li>
+                                            <li><a href="sidebar_right_secondary_hide.html" class="dropdown-item rounded">Show - hide secondary</a></li>
+                                            <li><a href="sidebar_right_visible.html" class="dropdown-item rounded">Visible by default</a></li>
+                                            <li class="dropdown-divider"></li>
+                                            <li><a href="sidebar_right_sections.html" class="dropdown-item rounded">Sectioned sidebar</a></li>
+                                            <li><a href="sidebar_right_stretched.html" class="dropdown-item rounded">Stretched sidebar</a></li>
+                                            <li><a href="sidebar_right_color_dark.html" class="dropdown-item rounded">Dark color</a></li>
+                                            <li><a href="sidebar_right_color_custom.html" class="dropdown-item rounded">Custom color</a></li>
+                                            <li><a href="sidebar_right_color_sections_custom.html" class="dropdown-item rounded">Custom sections color</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a href="sidebar_components.html" class="dropdown-item rounded">Sidebar components</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item rounded"><i class="icon-sort"></i> Vertical navigation</a>
+                                <ul class="list-unstyled">
+                                    <li><a href="navigation_vertical_collapsible.html" class="dropdown-item rounded">Collapsible menu</a></li>
+                                    <li><a href="navigation_vertical_accordion.html" class="dropdown-item rounded">Accordion menu</a></li>
+                                    <li><a href="navigation_vertical_bordered.html" class="dropdown-item rounded">Bordered navigation</a></li>
+                                    <li><a href="navigation_vertical_right_icons.html" class="dropdown-item rounded">Right icons</a></li>
+                                    <li><a href="navigation_vertical_badges.html" class="dropdown-item rounded">Badges</a></li>
+                                    <li><a href="navigation_vertical_disabled.html" class="dropdown-item rounded">Disabled items</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="navigation_horizontal_mega.html" class="dropdown-item font-weight-semibold rounded">
+                                    <i class="icon-grid52 text-indigo-400"></i>
+                                    <span class="text-indigo-400">Mega menu component</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</li>

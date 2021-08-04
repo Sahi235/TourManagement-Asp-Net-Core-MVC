@@ -1,0 +1,30 @@
+﻿@model List<City>
+@{
+    Layout = null;
+}
+@foreach (var city in Model)
+{
+    <li class="mb-1">
+        <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#gabala" aria-expanded="false">
+            @city.Name
+        </button>
+
+        <div class="collapse" id="gabala">
+            <ul class="list-unstyled fw-normal pb-1 small">
+                <li>
+                    <a asp-controller="Home" asp-action="OverSeasCityTours" asp-route-cityName="@city.Name"
+                       class="d-inline-flex align-items-center rounded"
+                       aria-current="page">All Tours of @city.Name</a>
+                </li>
+                @foreach (var tour in city.Tours)
+                {
+                    <li>
+                        <a asp-controller="Home" asp-action="OverSeasTour" asp-route-name="@tour.TourName"
+                           class="d-inline-flex align-items-center rounded">@tour.TourName</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </li>
+}

@@ -1,0 +1,51 @@
+﻿@model Tour;
+
+@{
+    Layout = "_Layout";
+}
+
+
+<!-- SEARCH END -->
+
+<div class="container-fluid pr-0 mt-2 main-part mb-4">
+
+    <!-- SIDEBAR START -->
+    <aside class="bd-sidebar main-part__1">
+        <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Docs navigation">
+            <ul class="list-unstyled mb-0 py-3 pt-md-1">
+                @await Component.InvokeAsync("DomesticCities")
+            </ul>
+        </nav>
+
+    </aside>
+    <!-- SIDEBAR END -->
+    <!-- MAIN START -->
+    <div class=" main-part__2 row justify-content-center mt-3">
+
+        <div class="card px-0 col-4" style="width: 18rem;">
+            <img src="~/assets/images/@ImageOwners.TourImage/@Model.TourImages.FirstOrDefault()?.Image.ImageUrl" class="card-img-top">
+            <div class="card-body pb-3 pt-3">
+                <h5 class="card-title text-center">@Model.TourName</h5>
+                <p class="card-text text-center"><strong>@Model.From.ToString("dddd dd MMMM") &rarr;</strong> @Model.Till.ToString("dddd dd MMMM")</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item__1">@Model.InitialPrice.ToString("C")</li>
+                @foreach (var service in Model.Services)
+                {
+                    <li class="list-group-item list-group-item__1">@service.Service.Name</li>
+                }
+            </ul>
+            @if (Model.Capacity > Model.TourRegistrations.Count)
+            {
+                <a asp-action="TourRegister" asp-controller="TourRegistration" asp-route-tourId="@Model.Id" class="btn btn-success text-center">Get Ticket</a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger text-center">Out of ticket</a>
+            }
+        </div>
+
+
+    </div>
+    <!-- MAIN END -->
+</div>

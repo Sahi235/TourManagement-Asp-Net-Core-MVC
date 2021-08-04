@@ -1,0 +1,22 @@
+
+$color-primary: #9055A2;
+
+
+    $bp-largest: 75em;          //1200px
+    $bp-larger: 62.5em;         //1000px
+    $bp-large: 59.4em;          //950px
+    $bp-middle: 58.8em;         //940px
+    $bp-middle-1: 51.9em;       //830px
+    $bp-small: 44.38em;         //710px
+    $bp-smaller: 37.5em;        //600px
+    $bp-smallest: 33.13em;      //530px
+    $bp-smallest-1: 24.6em;     //395px
+
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}

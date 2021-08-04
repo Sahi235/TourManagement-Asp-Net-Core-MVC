@@ -1,0 +1,18 @@
+﻿@model List<Tour>
+@{
+    Layout = null;
+}
+<div class="bg-secondary">
+    <h1 class="text-center text-white pt-3">Latest news</h1>
+    <ul class="list-group  list-group-flush text-white">
+        @foreach (var tour in Model)
+        {
+            <li class="list-group-item py-0 bg-secondary">
+                <p class="news-item">
+                    <strong class="news-item news-item__1">@tour.From.ToString("MMMM dd") &rarr; </strong>Tour to @tour.City.Name, @tour.InitialPrice.ToString("C") with a discount
+                    <a asp-action="TourRegister" asp-controller="TourRegistration" asp-route-tourId="@tour.Id" class="btn btn-success text-center news-btn news-btn__1">Get Ticket</a>
+                </p>
+            </li>
+        }
+    </ul>
+</div>

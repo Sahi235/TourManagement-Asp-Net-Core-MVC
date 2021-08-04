@@ -1,0 +1,68 @@
+.email-section{
+    margin: 2rem auto;
+    width: 40rem;
+    background-color: #fafafa;
+    box-shadow: -.1rem .1rem .5rem rgba(0, 0, 0, .3);
+}
+
+.sign{
+    margin: 1rem 0;
+    font-size: 3rem;
+    font-family: 'Rowdies', cursive;
+
+    &-payment{
+        font-size: 2rem;
+    }
+}
+
+.email-item{
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-item{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+
+    &-center{
+        margin-left: 1rem;
+    }
+}
+
+.form{
+
+    &-control{
+        font-size: 1.3rem;
+        padding: 0 1rem;
+        width: 30rem;
+
+        &-item{
+            font-size: 1rem;
+            width: 15rem;
+
+            &__2{
+                width: 30rem;
+            }
+        }
+    }
+
+    &-label-pay{
+        margin-bottom: 0;
+    }
+}
+
+.submit-email{
+    font-size: 1.6rem;
+    width: 15rem;
+    text-align: center;
+    margin: 1.8rem auto;
+    border-radius: 2rem;
+}
+
+.submit-payment{
+    font-size: 1.2rem;
+    width: 10rem;
+    text-align: center;
+    margin: .5rem auto;
+    border-radius: 2rem;
+}

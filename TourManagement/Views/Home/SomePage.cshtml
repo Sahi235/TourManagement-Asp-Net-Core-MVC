@@ -1,0 +1,10 @@
+﻿@model IEnumerable<City>;
+@{
+    Layout = null;
+}
+
+
+@foreach (var city in Model)
+{
+    <h1>@city.Name</h1>
+}

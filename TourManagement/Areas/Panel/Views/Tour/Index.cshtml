@@ -1,0 +1,74 @@
+﻿@model List<Tour>;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "LimitlessLayout";
+}
+@section Css
+{
+    <!-- Theme JS files -->
+    <script src="~/Limitless/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/datatables_advanced.js"></script>
+}
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">List of rooms</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table datatable-show-all">
+        <thead>
+            <tr>
+                <th>Tour Name</th>
+                <th>City</th>
+                <th>Start from</th>
+                <th>Ends at</th>
+                <th>Status</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var tour in Model)
+            {
+                <tr>
+                    <td>@tour.TourName</td>
+                    <td>@tour.City.Name</td>
+                    <td>@tour.From.ToString("D")</td>
+                    <td>@tour.Till.ToString("D")</td>
+                    <td>
+                        @if (tour.Capacity <= tour.TourRegistrations.Count)
+                        {
+                            <span class="badge badge-success">Booked</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-light">Free</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <div class="list-icons">
+                            <div class="dropdown">
+                                <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                    <i class="icon-menu9"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a asp-controller="Tour" asp-action="Edit" asp-route-id="@tour.Id" class="dropdown-item"><i class="icon-pencil"></i>Edit</a>
+                                    <a asp-controller="Tour" asp-action="Delete" asp-route-id="@tour.Id" class="dropdown-item"><i class="icon-eraser3"></i>Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

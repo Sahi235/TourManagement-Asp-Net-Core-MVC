@@ -1,0 +1,87 @@
+.main{
+    &-section{
+        border: black solid 1px;
+        padding: 2rem ;
+        width: 50rem;
+        height: 17rem;
+
+        &-1{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-1.jpg);
+            background-size: cover;
+        }
+
+        &-2{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-2.jpg);
+            background-size: cover;
+        }
+
+        &-3{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-3.jpg);
+            background-size: cover;
+        }
+
+        &-4{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-4.jpg);
+            background-size: cover;
+        }
+
+        &-5{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-5.jpg);
+            background-size: cover;
+        }
+
+        &-6{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-6.jpg);
+            background-size: cover;
+        }
+
+        &-7{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-7.jpg);
+            background-size: cover;
+        }
+
+        &-8{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-8.jpg);
+            background-size: cover;
+        }
+
+        &-9{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-9.jpg);
+            background-size: cover;
+        }
+
+        &-10{
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.904) 0, rgba(255, 255, 255, 0.904) 60%, transparent 60%),
+                    url(../img/hotel-10.jpg);
+            background-size: cover;
+        }
+
+        &-pay{
+            margin-left: 13rem;
+            margin-top: .5rem;
+        }
+
+        &-features{
+            font-size: 1.2rem;
+        }
+    }
+
+    &-star{
+        transform: translateY(-2rem);
+
+        &__icon{
+            width: 1.5rem;
+            height: 1.5rem;
+            fill:  #f39c12;
+        }
+    }
+}

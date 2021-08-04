@@ -1,0 +1,157 @@
+﻿@model EditTourVm;
+
+@{
+    ViewData["Title"] = "Add Tour";
+    ViewData["Head"] = "HoTour";
+    ViewData["Sub"] = "Add";
+    Layout = "LimitlessLayout";
+}
+
+@section css{
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+
+    <script src="~/Limitless/js/plugins/editors/summernote/summernote.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/editor_summernote.js"></script>
+    <script src="~/Limitless/js/demo_pages/form_tags_input.js"></script>
+    <script src="~/Limitless/js/plugins/forms/tags/tagsinput.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/tags/tokenfield.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/inputs/typeahead/typeahead.bundle.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/form_inputs.js"></script>
+    <script src="~/Limitless/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="~/Limitless/js/plugins/pickers/daterangepicker.js"></script>
+    <script src="~/Limitless/js/plugins/pickers/anytime.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/picker_date.js"></script>
+    <script src="~/Limitless/js/demo_pages/form_checkboxes_radios.js"></script>
+    <script src="~/Limitless/js/plugins/extensions/jquery_ui/interactions.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/form_select2.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/uploader_bootstrap.js"></script>
+    <script src="~/Limitless/js/plugins/uploaders/fileinput/plugins/purify.min.js"></script>
+    <script src="~/Limitless/js/plugins/uploaders/fileinput/plugins/sortable.min.js"></script>
+    <script src="~/Limitless/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/anytime.min.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/pickadate/picker.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/pickers/pickadate/legacy.js"></script>
+    <script src="~/Limitless/global_assets/js/plugins/notifications/jgrowl.min.js"></script>
+    <script src="~/Limitless/global_assets/js/demo_pages/picker_date.js"></script>
+
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" asp-controller="Tour" asp-area="Panel" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input hidden asp-for="TourId" value="@Model.TourId"/>
+            <div class="form-group">
+                <div class="form-group row">
+                    <label asp-for="TourName" class="col-form-label col-lg-1"></label>
+                    <div class="col-lg-10">
+                        <input asp-for="TourName" type="text" class="form-control">
+                        <span asp-validation-for="TourName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label col-lg-2">Tour Information</label>
+                <div class="col-lg-10">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <input asp-for="Capacity" type="number" class="form-control">
+                            <span class="badge d-block badge-info form-text">Tour Capacity</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input asp-for="Price" type="number" class="form-control">
+                            <span class="badge d-block badge-info form-text">Tour Price</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mb-4">
+                    <p>Start Date</p>
+                    <div class="input-group">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                        </span>
+                        <input type="text" asp-for="From" class="form-control pickadate" placeholder="Try me&hellip;">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    @*<h6 class="font-weight-semibold">End Date</h6>*@
+                    <p>End Date</p>
+                    <div class="input-group">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                        </span>
+                        <input type="text" asp-for="Till" class="form-control pickadate" placeholder="Try me&hellip;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Choose City</label>
+                <select class="form-control select-multiple-drag" asp-for="CityId" asp-items="ViewBag.Cities" data-fouc>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Choose Services</label>
+                <select class="form-control select-multiple-drag" asp-for="ServicesId" asp-items="ViewBag.Services" data-fouc>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="card">
+                    <div class="card-header header-elements-inline">
+                        <h5 class="card-title">Click to edit</h5>
+                        <div class="header-elements">
+                            <div class="list-icons">
+                                <a class="list-icons-item" data-action="collapse"></a>
+                                <a class="list-icons-item" data-action="reload"></a>
+                                <a class="list-icons-item" data-action="remove"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <button type="button" id="edit" class="btn btn-primary"><i class="icon-pencil3 mr-2"></i> Edit</button>
+                            <button type="button" id="save" class="btn btn-success"><i class="icon-checkmark3 mr-2"></i> Save</button>
+                        </div>
+                        <textarea asp-for="Description" style="display: none" class="click2edit"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-lg-1 col-form-label font-weight-semibold">Images</label>
+                <div class="col-lg-10">
+                    <input asp-for="Images" type="file" class="file-input" multiple="multiple" data-fouc>
+                    <span class="form-text text-muted"><code>Tour Images</code>.</span>
+                </div>
+            </div>
+
+
+            <br />
+            <div class="form-check form-check-switchery">
+                <label class="form-check-label">
+                    <input asp-for="IsAvailable" value="true" type="checkbox" class="form-check-input-switchery" checked data-fouc>Is Published
+                </label>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

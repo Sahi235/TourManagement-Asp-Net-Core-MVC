@@ -1,0 +1,146 @@
+﻿@{
+    Layout = "LimitlessLayout";
+}
+
+@section css
+{
+    <!-- Theme JS files -->
+    <script src="~/Limitless/js/plugins/ui/fullcalendar/core/main.min.js"></script>
+    <script src="~/Limitless/js/plugins/ui/fullcalendar/daygrid/main.min.js"></script>
+    <script src="~/Limitless/js/plugins/ui/fullcalendar/timegrid/main.min.js"></script>
+    <script src="~/Limitless/js/plugins/ui/fullcalendar/list/main.min.js"></script>
+    <script src="~/Limitless/js/plugins/ui/fullcalendar/interaction/main.min.js"></script>
+}
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Tours Calendar</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <p class="mb-3">All Tours calendar</p>
+
+        <div class="fullcalendar-event-colors"></div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+    var today = new Date();
+    var d2 = String(today.getDate() + 5).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    fiveDaysLater = yyyy + '-' + mm + '-' + d2;
+
+    /* ------------------------------------------------------------------------------
+    *
+    *  # Fullcalendar basic options
+    *
+    *  Demo JS code for extra_fullcalendar_styling.html page
+    *
+    * ---------------------------------------------------------------------------- */
+
+
+    // Setup module
+    // ------------------------------
+
+    var FullCalendarStyling = function () {
+
+
+        //
+        // Setup module components
+        //
+
+        // External events
+        var _componentFullCalendarStyling = function () {
+            if (typeof FullCalendar == 'undefined') {
+                console.warn('Warning - Fullcalendar files are not loaded.');
+                return;
+            }
+
+
+            // Add events
+            // ------------------------------
+            var result = @Json.Serialize(Model.ApiModel);
+            // Event colors
+            var eventColors = [ ...result ];
+
+
+            // Define element
+            var calendarEventColorsElement = document.querySelector('.fullcalendar-event-colors');
+
+            // Initialize
+            if (calendarEventColorsElement) {
+                var calendarEventColorsInit = new FullCalendar.Calendar(calendarEventColorsElement, {
+                    plugins: ['dayGrid', 'interaction'],
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                    },
+                    defaultDate: today,
+                    editable: true,
+                    events: eventColors
+                }).render();
+            }
+
+
+            //
+            // Event background colors
+            //
+
+            // Define element
+            var calendarEventBgColorsElement = document.querySelector('.fullcalendar-background-colors');
+
+            // Initialize
+            if (calendarEventBgColorsElement) {
+                var calendarEventBgColorsInit = new FullCalendar.Calendar(calendarEventBgColorsElement, {
+                    plugins: ['dayGrid', 'interaction'],
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                    },
+                    defaultDate: today,
+                    editable: true,
+                    events: eventColors
+                }).render();
+            }
+        };
+
+
+        //
+        // Return objects assigned to module
+        //
+
+        return {
+            init: function () {
+                _componentFullCalendarStyling();
+            }
+        }
+    }();
+
+
+    // Initialize module
+    // ------------------------------
+
+    document.addEventListener('DOMContentLoaded', function () {
+        FullCalendarStyling.init();
+    });
+
+
+
+</script>

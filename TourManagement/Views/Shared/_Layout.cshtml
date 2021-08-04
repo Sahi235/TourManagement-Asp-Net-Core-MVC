@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/Main/css/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,300,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Questrial">
+    @await RenderSectionAsync("css", required: false)
+    <title>Tourism</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER START -->
+    <nav class="navbar nav-main navbar-expand-md navbar-dark bg-dark">
+        <a  asp-action="Index" asp-controller="Home" asp-area="@null" class="navbar-brand">
+            <h3 class="mb-0">Aurora Grove</h3>
+        </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#myNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="myNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Index" asp-area="@null" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="DomesticTours" asp-area="@null" class="nav-link">Domestic</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="OverSeasTours" asp-area="@null" class="nav-link">Overseas</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="Home" asp-action="Hotels" asp-area="@null" class="nav-link">Hotels</a>
+                </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item">
+                        <a asp-controller="Dashboard" asp-action="Index" asp-area="Panel" class="nav-link">Dashboard</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-controller="Account" asp-action="Login" asp-area="@null" class="nav-link">Login</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+    <!-- HEADER END -->
+    <div class="content">
+        <form class="input-group w-25 mt-1 ml-1 row search-form" method="get" id="search-tours" asp-action="SearchTour" asp-controller="Search" asp-area="@null">
+            <input type="text" name="input" class="form-control pl-4 pr-5 search-input" placeholder="Search" aria-label="Search"
+                   aria-describedby="basic-addon1">
+            <button class="search-btn" type="submit">
+                <ion-icon name="search-outline" class="search-icon"></ion-icon>
+            </button>
+        </form>
+        @RenderBody()
+    </div>
+
+    <!-- FOOTER START -->
+
+    @await Component.InvokeAsync("Tours")
+
+    <footer id="contactSection" class="bg-dark contact">
+
+        <h2 class="contact-header">Contact with us</h2>
+        <h2 class="contact-header">Follow us on social media</h2>
+        <h2 class="contact-header">Travel with us</h2>
+        <h2 class="contact-header">Be satisfied</h2>
+        <div class="contact-num">
+            <p class="contact-number">+994 55 559 35 95</p>
+            <p class="contact-number">+994 50 559 35 95</p>
+        </div>
+
+        <div class="footer-media">
+            <a href="#" class="social-media social-media-1"></a>
+            <a href="#" class="social-media social-media-2"></a>
+            <a href="#" class="social-media social-media-3"></a>
+            <a href="#" class="social-media social-media-4"></a>
+        </div>
+    </footer>
+
+    <!-- FOOTER END -->
+    <!-- ICONS -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+
+    <script src="~/Main/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Main/js/index.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

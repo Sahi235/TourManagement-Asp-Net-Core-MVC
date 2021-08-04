@@ -1,0 +1,56 @@
+body{
+    font-family: "Raleway", sans-serif;
+}
+
+.navbar{
+    font-weight: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+
+    &-brand h3{
+        font-weight: 100;
+    }
+
+    .nav-item{
+        font-size: 1.4rem;
+        color: black;
+    }
+
+    .nav-link:hover{
+        transition: border 0.2s;
+        border-bottom: 1px solid white;
+    }
+}
+
+.nav-main{
+    position: relative;
+}
+
+#showcase{
+    background: url("../img/main.jpg") bottom center/ cover no-repeat;
+    min-height: 110vh; 
+    position: relative;
+
+    #header{
+        z-index: 2;
+    }
+
+    #overlay{
+        background-color: rgba(0,0,0, .2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    h1{
+        font-family: "Questrial", sans-serif;
+        line-height: 1;
+    }
+}

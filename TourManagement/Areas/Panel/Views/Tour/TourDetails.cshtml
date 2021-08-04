@@ -1,0 +1,88 @@
+﻿@model Tour;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "LimitlessLayout";
+}
+@section Css
+{
+    <!-- Theme JS files -->
+    <script src="~/Limitless/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script src="~/Limitless/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="~/Limitless/js/demo_pages/datatables_advanced.js"></script>
+}
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Tour Details</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table datatable-show-all">
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Services</th>
+                <th>Status</th>
+                <th>Payment Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var registration in Model.TourRegistrations)
+            {
+                string serviceNames = "";
+                {
+                    if (registration.Services.Any())
+                    {
+                        foreach (var serv in registration.Services)
+                        {
+                            serviceNames += serv.Service.Name;
+                            serviceNames += ',';
+                        }
+                    }
+                }
+                <tr>
+                    <td>@registration.Client.Name</td>
+                    <td>@registration.Client.Email</td>
+                    <td>@registration.Client.PhoneNumber</td>
+                    @if (string.IsNullOrWhiteSpace(serviceNames))
+                    {
+                        <td>Not Chosen</td>
+                    }
+                    else
+                    {
+                        <td>@serviceNames</td>
+                    }
+                    <td>
+                        @if (registration.Payment != null)
+                        {
+                            <span class="badge badge-success">Paid</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">Unpaid</span>
+                        }
+                    </td>
+                    <td>
+                        @if (registration.Payment != null)
+                        {
+                            @registration.Payment.PaymentAmount.ToString("C")
+                        }
+                        else
+                        {
+                            <span>0</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

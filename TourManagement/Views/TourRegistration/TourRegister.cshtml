@@ -1,0 +1,59 @@
+﻿@model RegisterTourVm;
+@{
+    Layout = "_Layout";
+}
+@section css{
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+<section class="email-section mb-5">
+    <div class=" pl-5 border">
+        <h1 class="text-center sign sign-up">Registration</h1>
+
+        <form method="post" asp-controller="TourRegistration" asp-action="TourRegister" enctype="multipart/form-data">
+            <input hidden asp-for="TourId" value="@Model.TourId" />
+            <div class="email-item">
+                <label asp-for="ClientName" class="form-label"></label>
+                <input asp-for="ClientName" class="form-control" placeholder="Enter your Full Name">
+                <span class="text-danger" asp-validation-for="ClientName"></span>
+            </div>
+
+            <div class="email-item">
+                <label asp-for="ClientEmail" class="form-label"></label>
+                <input asp-for="ClientEmail" class="form-control" placeholder="Enter your last Email">
+                <span class="text-danger" asp-validation-for="ClientEmail"></span>
+            </div>
+
+            <div class="email-item">
+                <label asp-for="ClientPhoneNumber" class="form-label"></label>
+                <input asp-for="ClientPhoneNumber" class="form-control" id="phone" placeholder="+994 | XXX XXX XX XX">
+                <span class="text-danger" asp-validation-for="ClientPhoneNumber"></span>
+            </div>
+
+            <div class="email-item">
+                <label>Choose the services you want</label>
+                <br />
+                <select multiple asp-for="ServicesId" asp-items="ViewBag.Services"></select>
+                <span class="text-danger" asp-validation-for="ServicesId"></span>
+            </div>
+            <div class="email-item">
+                <label class="form-label">Passport picture</label>
+                <br />
+                <input asp-for="PassportPic" type="file" />
+                <span class="text-danger" asp-validation-for="PassportPic"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+
+
+    </div>
+</section>
+
+@section Scripts{
+    <script type="text/javascript">
+        var element = document.getElementById("search-tours");
+        element.style.display = "none";
+    </script>
+}

@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TourManagement
+@using TourManagement.Models
+@using TourManagement.ViewModels;
+@using TourManagement.Areas.Panel.ViewModels;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *,AuthoringTagHelpers
+
+
+@inject SignInManager<ApplicationUser> SignInManager;
+@inject UserManager<ApplicationUser> UserManager;
